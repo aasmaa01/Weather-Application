@@ -1,0 +1,303 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Arial', sans-serif;
+    background: #192b41;
+    color: #fff;
+}
+.container{
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+}
+.side a {
+    text-decoration: none;
+    color: #fff; 
+    font-weight: bold;
+}
+.side-bar{
+    width: 15%;
+    background-color: #203354 ;
+    padding: 25px;
+    border-radius: 25px;
+    border: none;
+}
+.side-bar h2{
+    margin-bottom: 30px;
+    font-size: 2rem;
+    color: #f7b731;
+    text-align: center;
+}
+.side-bar ul {
+    list-style: none;
+    font-size: 1.7rem;
+    
+}
+.side-bar ul li {
+    padding: 20px;
+}
+.side-bar ul li img {
+    width: 30px; 
+    height: 30px;
+    margin-right: 15px; 
+    vertical-align: middle;
+}
+.main-content{
+    width: 60%;
+    padding: 20px;
+}
+.search-bar{
+    display: flex;
+    align-items: center;
+    background-color: #203354;
+    border-radius: 25px;
+    padding: 10px;
+    max-width: 400px;
+    margin: 20px auto;
+    height: 10%;
+    border-radius: 20px;
+}
+.search-bar input{
+    flex: 1;
+    background-color: transparent;
+    border: none;
+    color: white;
+    padding: 10px;
+    font-size: 1rem;
+    outline: none;
+    border-radius: 25px 0 0 25px;
+}
+.search-bar input::placeholder{
+    color: #aaa;
+}
+#search-btn{
+    background-color: #f7b731;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 0 25px 25px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s ease;
+}
+#search-btn:hover{
+    background-color: #d89e28;
+}
+#search-btn img{
+    width: 20px;
+    height: 20px;
+}
+#search-btn .sr-only{
+    display: none;
+}
+
+.current-weather{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 35%;
+    /*
+    border-radius: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2); */
+    margin: 20px auto;
+}
+.current-weather h1{
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+.current-weather h2{
+    font-size: 2.7rem;
+    margin-top: 10px;
+    color: #f7b731;
+}
+.current-weather p {
+    font-size: 1rem;                  
+    color: #aaa;                      
+    margin-bottom: 15px;              
+    display: inline;
+}
+.weather-icon img{
+    width: 100px;
+    height: auto; 
+    margin-top: 10px; 
+    transition: transform 0.3s;
+}
+.weather-icon img:hover{
+    transform: scale(1.1); 
+}.today-forecast {
+    margin-top: 20px;                    /* Space above the forecast section */
+    padding: 20px;                       /* Padding inside the forecast container */
+    border-radius: 20px;                 /* Rounded corners for the container */
+    background-color: #203354;           /* Background color consistent with theme */
+    color: #fff;      
+}
+
+.today-forecast h3 {
+    font-size: 2rem;                     /* Font size for the forecast title */
+    margin-bottom: 15px;                 /* Space below the title */
+    text-align: center;                  /* Center align the title */
+    color: #f7b731;                      /* Accent color for the title */
+}
+
+.hourly-forecast {
+    display: flex;                       /* Use flexbox for layout */
+    justify-content: space-between;      /* Space between hour items */
+    align-items: flex-start;             /* Align items at the start */
+}
+
+.hour {
+    text-align: center;                  /* Center align content in each hour box */
+    flex: 1;                             /* Make each hour box flexible */
+    margin: 0 5px;                      /* Space between hour boxes */
+}
+
+.hour p {
+    font-size: 1rem;                    /* Font size for the hour */
+    margin: 5px 0;                      /* Space above and below the hour text */
+    color: #fff;                        /* Text color for hours */
+}
+
+.hour img {
+    width: 50px;                        /* Width of the weather icon */
+    height: auto;                       /* Maintain aspect ratio */
+    margin: 5px 0;    
+    transition: transform 0.3s;                   
+}
+.hour img:hover{
+    transform: scale(1.1); 
+}
+.air-conditions {
+    margin-top: 20px;                     /* Space above the air conditions section */
+    padding: 10px;                        /* Padding inside the air conditions container */
+    border-radius: 20px;                  /* Rounded corners for the container */
+    background-color: #203354;            /* Background color consistent with the theme */
+    color: #fff;                          /* Text color for visibility */
+    text-align: center;     
+    height: 15%;              /* Center align the text */
+}
+
+.air-conditions h3 {
+    font-size: 2rem;                      /* Font size for the section title */
+    margin-bottom: 15px;                  /* Space below the title */
+    color: #f7b731;                       /* Accent color for the title */
+}
+
+.air-conditions p {
+    font-size: 1.2rem;                    /* Font size for the condition text */
+    margin: 5px 0;                        /* Space above and below each condition */
+    color: #aaa;                          /* Subtle color for conditions */
+    display: inline;
+}
+.weekly-forecast { /* Corrected class name */
+    width: 25%;                        /* Full width for responsiveness */
+    max-width: 600px;                  /* Set maximum width for the container */
+    background-color: #203354;         /* Background color consistent with the theme */
+    padding: 45px;                     /* Padding inside the container */
+    border-radius: 20px;               /* Rounded corners */
+    margin: 20px auto;                 /* Center the forecast on the page */
+}
+
+.weekly-forecast h3 {
+    font-size: 2rem;                   /* Font size for the section title */
+    margin-bottom: 20px;               /* Space below the title */
+    color: #f7b731;                    /* Accent color for the title */
+    text-align: center;   
+    padding: 20px;
+}
+
+.day {
+    display: flex;                     /* Use flexbox for layout */
+    justify-content: space-between;    /* Space between day and temperature */
+    align-items: center;               /* Center align items vertically */
+    margin-bottom: 15px;              
+    padding: 18px;
+}
+
+.day p {
+    font-size: 1.2rem;                 /* Font size for day and temperature */
+    color: #fff;                       /* Text color for visibility */
+}
+
+.day img {
+    width: 40px;                       /* Width for the weather icons */
+    height: auto;                      /* Maintain aspect ratio */
+}
+.day img:hover{
+    transform: scale(1.1);
+}
+.error{
+    text-align: left;
+    margin-left: 10px;
+    font-size: 14px;
+    margin-top: 10px;
+    display: none;
+}
+.home {
+    font-family: Arial, sans-serif;
+    background-color: #192b41;
+    color: #ffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+.welcome-container{
+    text-align: center;
+    max-width: 600px;
+    padding: 40px;
+    background-color: #203354;
+    border-radius: 20px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+}
+.welcome-title {
+    font-size: 1.2rem;
+    color: #aaa;
+    margin-bottom: 30px;
+}
+.welcome-message {
+    margin-top: 20px;                 /* Spacing above GitHub link */
+    font-size: 1.2rem;  
+    padding: 20px;              /* Font size for GitHub link */
+}
+.welcome-message a {
+    color: #f7b731;                   /* GitHub link color */
+    text-decoration: none;            /* Removes underline */
+    font-weight: bold;                /* Makes the link bold */
+    transition: color 0.3s ease;     /* Smooth color transition */
+}
+.enter-button {
+    display: inline-block;
+    padding: 12px 30px;
+    font-size: 1.2rem;
+    color: #ffff;
+    background-color: #f7b731;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease, 
+    transform 0.2s ease; ;
+}
+.enter-button:hover {
+    background-color: #d89e28;
+    transform: scale(1.1);
+}
+@media (max-width:760px){
+    .welcome-container {
+        padding: 20px;                     /* Reduces padding for smaller screens */
+    }
+    .welcome-title {
+        font-size: 2rem;                   /* Reduces title font size for smaller screens */
+    }
+
+    .welcome-message {
+        font-size: 1rem;                   /* Reduces message font size for better readability */
+    }
+    .enter-button {
+        font-size: 1rem;                   /* Adjusts button font size for smaller devices */
+    }
+}
