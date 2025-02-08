@@ -3,132 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weather App </title>
+    <title>Weather App</title>
     <link rel="stylesheet" href="style.css">
-    
 </head>
 <body>
-    
     <div class="container">
         <!-- SIDE BAR -->
-         <div class="side-bar">
-            <h2> Weather </h2>
-            <ul class="side">
-                <li><img src="images&icons/icons8-home-50.png" alt=""><a href="home.html">Home</a></li>
-                <li><img src="images&icons/icons8-country-50.png" alt=""><a href="cities.html">Cities</a></li>
-                <li><img src="images&icons/icons8-setting-50.png" alt=""><a href="settings.html">Setting</a></li>
-            </ul>
-         </div>
-         <!--MAIN-->
-         <div class="main-content">
-            <!-- SEARCH  BAR-->
-            <div class="search-bar">
-                <input id="search-city" type="text" placeholder="enter your city ">
-                <button id="search-btn" >
-                    <img src="images&icons/icons8-search-50.png" alt="">
+        <aside class="side-bar">
+            <h2>Weather</h2>
+            <nav>
+                <ul class="side">
+                    <li><img src="images&icons/icons8-home-50.png" alt="Home Icon"><a href="home.html">Home</a></li>
+                    <li><img src="images&icons/icons8-country-50.png" alt="Cities Icon"><a href="cities.html">Cities</a></li>
+                    <li><img src="images&icons/icons8-setting-50.png" alt="Settings Icon"><a href="settings.html">Settings</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- MAIN CONTENT -->
+        <main class="main-content">
+            <!-- SEARCH BAR -->
+            <section class="search-bar">
+                <input id="search-city" type="text" placeholder="Enter your city" aria-label="Search for a city">
+                <button id="search-btn">
+                    <img src="images&icons/icons8-search-50.png" alt="Search Icon">
                     <span class="sr-only">Search</span>
                 </button>
-            </div>
+            </section>
 
-            <div class="error">
+            <!-- ERROR MESSAGE -->
+            <div class="error" role="alert" style="display: none;">
                 <p>Invalid city name</p>
             </div>
-            <div class="current-weather">
+
+            <!-- CURRENT WEATHER -->
+            <section class="current-weather">
                 <div>
-                    <h1 class="city">algiers</h1>
-                    <p>Chance of rain <p class="rain"></p></p>
-                    <h2 class="temp">23°C</h2>
+                    <h1 class="city">City Name</h1>
+                    <p>Chance of rain: <span class="rain">0 mm</span></p>
+                    <h2 class="temp">0°C</h2>
                 </div>
                 <div class="weather-icon">
-                    <img src="images&icons/icons8-snowy-sunny-day-94.png" class="weather-iconn" alt="sunny">
+                    <img src="images&icons/icons8-snowy-sunny-day-94.png" class="weather-iconn" alt="Weather Icon">
                 </div>
-                
-            </div>
-            
-            <div class="today-forecast"> 
-                <h3>Today Forecast</h3>
+            </section>
+
+            <!-- TODAY'S FORECAST -->
+            <section class="today-forecast">
+                <h3>Today's Forecast</h3>
                 <div class="hourly-forecast">
-                    <div class="hour">
-                        <p>1 PM</p>
-                        <img src="images&icons/icons8-storm-94.png" alt="">
-                        <p>20°C</p> <!-- Add temperature if needed -->
-                    </div>
-                    <div class="hour">
-                        <p>5 PM</p>
-                        <img src="images&icons/icons8-partly-cloudy-day-94.png" alt="">
-                        <p>22°C</p>
-                    </div>
-                    <div class="hour">
-                        <p>9 PM</p>
-                        <img src="images&icons/icons8-snowy-sunny-day-94.png" alt="">
-                        <p>19°C</p>
-                    </div>
-                    <div class="hour">
-                        <p>1 AM</p>
-                        <img src="images&icons/icons8-snowy-sunny-day-94.png" alt="">
-                        <p>18°C</p>
-                    </div>
-                    <div class="hour">
-                        <p>5 AM</p>
-                        <img src="images&icons/icons8-cloud-94.png" alt="">
-                        <p>17°C</p>
-                    </div>
-                    <div class="hour">
-                        <p>9 AM</p>
-                        <img src="images&icons/icons8-windy-weather-94.png" alt="">
-                        <p>21°C</p>
-                    </div>
+                    <!-- Hourly forecast will be dynamically inserted here -->
                 </div>
-            </div>
-            
-            <div class="air-conditions">
+            </section>
+
+            <!-- AIR CONDITIONS -->
+            <section class="air-conditions">
                 <h3>Air Conditions</h3>
-                <p>~Precipitation: <p class="rain"></p>~</p>
-                <p>Humidity: <p class="humidity">48</p>~ </p>
-                <p>Wind: <p class="wind">0.2</p>~</p>
+                <p>Precipitation: <span class="rain">0 mm</span></p>
+                <p>Humidity: <span class="humidity">0%</span></p>
+                <p>Wind: <span class="wind">0 km/h</span></p>
+            </section>
+        </main>
+
+        <!-- WEEKLY FORECAST -->
+        <section class="weekly-forecast">
+            <h3>7-Day Forecast</h3>
+            <div class="days">
+                <!-- Weekly forecast will be dynamically inserted here -->
             </div>
-            
-         </div><!-- Week -->
-         <div class="weekly-forecast"> 
-             <h3>7-Days Forecast</h3>
-             <div class="day">
-                 <p>Mon</p>
-                 <img src="images&icons/icons8-windy-weather-94.png" alt="Sunny">
-                 <p>27/23°C</p>
-             </div>
-             <div class="day">
-                 <p>Tue</p>
-                 <img src="images&icons/icons8-windy-weather-94.png" alt="Sunny">
-                 <p>27/23°C</p>
-             </div>
-             <div class="day">
-                 <p>Wed</p>
-                 <img src="images&icons/icons8-windy-weather-94.png" alt="Sunny">
-                 <p>27/23°C</p>
-             </div>
-             <div class="day">
-                 <p>Thu</p>
-                 <img src="images&icons/icons8-partly-cloudy-day-94.png" alt="Sunny">
-                 <p>27/23°C</p>
-             </div>
-             <div class="day">
-                 <p>Fri</p>
-                 <img src="images&icons/icons8-snowy-sunny-day-94.png" alt="Sunny">
-                 <p>27/23°C</p>
-             </div>
-             <div class="day">
-                 <p>Sat</p>
-                 <img src="images&icons/icons8-partly-cloudy-day-94.png" alt="Sunny">
-                 <p>27/23°C</p>
-             </div>
-             <div class="day">
-                 <p>Sun</p>
-                 <img src="images&icons/icons8-partly-cloudy-day-94.png" alt="Sunny">
-                 <p>27/23°C</p>
-             </div>
-         </div>
-         
+        </section>
     </div>
-    <script src="app.js"> </script>
+
+    <script src="app.js"></script>
 </body>
 </html>
