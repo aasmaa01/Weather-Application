@@ -12,9 +12,6 @@ L'application **Weather Application** permet aux utilisateurs de consulter la m�
 - 📍 **Géolocalisation automatique** : Détecte votre position et affiche la météo actuelle.
 - 📊 **Affichage dynamique** : Icônes et couleurs adaptées aux conditions météorologiques.
 
-## 📸 Aperçu
-![Aperçu de l'application](https://aasmaa01.github.io/Weather-Application/screenshot.png)
-
 ## 🛠 Installation
 1. **Clone** le projet :
    ```bash
