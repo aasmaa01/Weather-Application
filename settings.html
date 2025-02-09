@@ -4,7 +4,134 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SETTINGS</title>
-    <link rel="stylesheet" href="home.css">
+    <style>
+        /* Styles Généraux */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: #192b41;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            transition: background 0.3s ease;
+        }
+
+        /* Conteneur des paramètres */
+        .settings-container {
+            background-color: #203354;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.1);
+            text-align: center;
+            width: 350px;
+        }
+
+        .settings-title {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #f7b731;
+        }
+
+        /* Élément de paramètre */
+        .setting-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 15px 0;
+            font-size: 1.2rem;
+        }
+
+        /* Bouton de bascule du thème */
+        .theme-toggle {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .theme-toggle input {
+            appearance: none;
+            width: 40px;
+            height: 20px;
+            background: #f7b731;
+            border-radius: 10px;
+            position: relative;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .theme-toggle input::before {
+            content: "";
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 14px;
+            height: 14px;
+            background: white;
+            border-radius: 50%;
+            transition: 0.3s;
+        }
+
+        .theme-toggle input:checked {
+            background: white;
+        }
+
+        .theme-toggle input:checked::before {
+            left: 23px;
+            background: #f7b731;
+        }
+
+        /* Bouton de sauvegarde */
+        .save-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 15px;
+            background: #f7b731;
+            color: black;
+            font-size: 1.2rem;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background 0.3s ease;
+        }
+
+        .save-button:hover {
+            background: #e6a423;
+        }
+
+        /* Mode Clair */
+        .light-mode {
+            background-color: white;
+            color: black;
+        }
+
+        .light-mode .settings-container {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .light-mode .save-button {
+            background: #222;
+            color: white;
+        }
+
+        .light-mode .theme-toggle input {
+            background: black;
+        }
+
+        .light-mode .theme-toggle input:checked {
+            background: white;
+        }
+
+        .light-mode .theme-toggle input:checked::before {
+            background: black;
+        }
+    </style>
 </head>
 <body>
     <div class="settings-container">
@@ -17,7 +144,34 @@
                 <label for="theme">Light</label>
             </div>
         </div>
-        <a href="" class="save-button">Save Settings</a>
+        <a href="#" class="save-button">Save Settings</a>
     </div>
+
+    <script>
+        // Fonction pour basculer entre mode clair et sombre
+        function toggleTheme() {
+            const body = document.body;
+            const themeToggle = document.getElementById("theme");
+
+            if (themeToggle.checked) {
+                body.classList.add("light-mode");
+                localStorage.setItem("theme", "light");
+            } else {
+                body.classList.remove("light-mode");
+                localStorage.setItem("theme", "dark");
+            }
+        }
+
+        // Vérifier le thème stocké et l'appliquer
+        window.onload = function () {
+            const savedTheme = localStorage.getItem("theme");
+            const themeToggle = document.getElementById("theme");
+
+            if (savedTheme === "light") {
+                document.body.classList.add("light-mode");
+                themeToggle.checked = true;
+            }
+        };
+    </script>
 </body>
 </html>
