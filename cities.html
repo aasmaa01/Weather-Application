@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Capitales du Monde</title>
     <style>
-        /* Styles Généraux */
         * {
             margin: 0;
             padding: 0;
@@ -19,7 +18,6 @@
             display: flex;
         }
 
-        /* Sidebar */
         .side-bar {
             width: 250px;
             height: 100vh;
@@ -89,7 +87,6 @@
             color: #f7b731;
         }
 
-        /* Barre de recherche */
         .search-bar {
             display: flex;
             align-items: center;
@@ -114,7 +111,6 @@
             color: #aaa;
         }
 
-        /* Liste des capitales */
         .cities-list {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -141,7 +137,6 @@
     </style>
 </head>
 <body>
-    <!-- Barre latérale -->
     <aside class="side-bar">
         <h2>Weather</h2>
         <nav>
@@ -162,7 +157,6 @@
         </nav>
     </aside>
 
-    <!-- Contenu principal -->
     <main class="main-content">
         <h1>Capitales du Monde</h1>
         <div class="search-bar">
@@ -183,7 +177,7 @@
 
                 const data = await response.json();
                 allCities = data
-                    .filter(country => country.capital) // Filtrer ceux qui ont une capitale
+                    .filter(country => country.capital) 
                     .map(country => ({
                         name: country.capital[0],
                         country: country.name.common
