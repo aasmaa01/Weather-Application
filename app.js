@@ -6,14 +6,18 @@ const searchBox = document.querySelector(".search-bar input");
 const searchBtn = document.querySelector(".search-bar button");
 const weatherIcon = document.querySelector(".weather-icon img");
 
+// Function to fetch weather data
 async function checkWeather(city) {
     try {
+        // Fetch current weather
         const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
         if (!response.ok) throw new Error("City not found");
         const data = await response.json();
 
+        // Update current weather
         updateCurrentWeather(data);
 
+        // Fetch and display forecast
         const forecastResponse = await fetch(forecastUrl + city + `&appid=${apiKey}`);
         if (!forecastResponse.ok) throw new Error("Forecast data not available");
         const forecastData = await forecastResponse.json();
@@ -26,6 +30,7 @@ async function checkWeather(city) {
     }
 }
 
+// Function to update current weather
 function updateCurrentWeather(data) {
     document.querySelector(".city").textContent = data.name;
     document.querySelector(".temp").textContent = `${Math.round(data.main.temp)}°C`;
@@ -59,10 +64,12 @@ function displayHourlyForecast(hourlyData) {
         .join("");
 }
 
+// Function to display weekly forecast
 function displayWeeklyForecast(dailyData) {
     const dailyForecastContainer = document.querySelector(".weekly-forecast .days");
     const dailyForecast = {};
 
+    // Group forecast data by day
     dailyData.forEach((data) => {
         const date = new Date(data.dt * 1000).toLocaleDateString("en-US", { weekday: "short" });
         if (!dailyForecast[date]) {
@@ -77,6 +84,7 @@ function displayWeeklyForecast(dailyData) {
         }
     });
 
+    // Display forecast for each day
     dailyForecastContainer.innerHTML = Object.keys(dailyForecast)
         .map((date) => {
             const dayData = dailyForecast[date];
@@ -106,16 +114,19 @@ function getIconByCondition(condition) {
     return iconMap[condition] || "images&icons/icons8-storm-94.png";
 }
 
+// Event listener for search button
 searchBtn.addEventListener("click", () => {
     if (searchBox.value.trim()) {
         checkWeather(searchBox.value.trim());
     }
 });
 
+// Optional: Allow pressing Enter to search
 searchBox.addEventListener("keypress", (e) => {
     if (e.key === "Enter" && searchBox.value.trim()) {
         checkWeather(searchBox.value.trim());
     }
 });
 
+// Default city on page load
 checkWeather("Algiers");
