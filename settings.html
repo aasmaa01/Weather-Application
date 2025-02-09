@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SETTINGS</title>
     <style>
-        /* Styles Généraux */
         * {
             margin: 0;
             padding: 0;
@@ -17,13 +16,55 @@
             background-color: #192b41;
             color: white;
             display: flex;
-            justify-content: center;
-            align-items: center;
             height: 100vh;
             transition: background 0.3s ease;
         }
 
-        /* Conteneur des paramètres */
+        .side-bar {
+            width: 250px;
+            background: #203354;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        .side-bar h2 {
+            text-align: center;
+            color: #f7b731;
+            font-size: 1.5rem;
+        }
+
+        .side-bar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .side-bar ul li {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px;
+            border-radius: 8px;
+            transition: background 0.3s;
+        }
+
+        .side-bar ul li:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .side-bar ul li img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .side-bar ul li a {
+            text-decoration: none;
+            color: white;
+            font-size: 1.2rem;
+        }
+
         .settings-container {
             background-color: #203354;
             padding: 30px;
@@ -31,6 +72,7 @@
             box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.1);
             text-align: center;
             width: 350px;
+            margin: auto;
         }
 
         .settings-title {
@@ -39,7 +81,6 @@
             color: #f7b731;
         }
 
-        /* Élément de paramètre */
         .setting-item {
             display: flex;
             justify-content: space-between;
@@ -48,7 +89,6 @@
             font-size: 1.2rem;
         }
 
-        /* Bouton de bascule du thème */
         .theme-toggle {
             display: flex;
             align-items: center;
@@ -87,7 +127,6 @@
             background: #f7b731;
         }
 
-        /* Bouton de sauvegarde */
         .save-button {
             display: inline-block;
             margin-top: 20px;
@@ -104,7 +143,6 @@
             background: #e6a423;
         }
 
-        /* Mode Clair */
         .light-mode {
             background-color: white;
             color: black;
@@ -112,6 +150,15 @@
 
         .light-mode .settings-container {
             background-color: #ddd;
+            color: black;
+        }
+
+        .light-mode .side-bar {
+            background: #ddd;
+            color: black;
+        }
+
+        .light-mode .side-bar ul li a {
             color: black;
         }
 
@@ -134,6 +181,26 @@
     </style>
 </head>
 <body>
+    <aside class="side-bar">
+        <h2>Weather</h2>
+        <nav>
+            <ul class="side">
+                <li>
+                    <img src="images&icons/icons8-home-50.png" alt="Home Icon">
+                    <a href="home.html">Home</a>
+                </li>
+                <li>
+                    <img src="images&icons/icons8-country-50.png" alt="Cities Icon">
+                    <a href="cities.html">Cities</a>
+                </li>
+                <li>
+                    <img src="images&icons/icons8-setting-50.png" alt="Settings Icon">
+                    <a href="settings.html">Settings</a>
+                </li>
+            </ul>
+        </nav>
+    </aside>
+
     <div class="settings-container">
         <h1 class="settings-title">Settings</h1>
         <div class="setting-item">
@@ -148,7 +215,6 @@
     </div>
 
     <script>
-        // Fonction pour basculer entre mode clair et sombre
         function toggleTheme() {
             const body = document.body;
             const themeToggle = document.getElementById("theme");
@@ -162,7 +228,6 @@
             }
         }
 
-        // Vérifier le thème stocké et l'appliquer
         window.onload = function () {
             const savedTheme = localStorage.getItem("theme");
             const themeToggle = document.getElementById("theme");
